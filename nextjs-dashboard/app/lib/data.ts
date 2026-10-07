@@ -8,6 +8,7 @@ import {
   Revenue,
 } from "./definitions";
 import { formatCurrency } from "./utils";
+import { invoices } from "./placeholder-data";
 
 const sql = postgres(process.env.DATABASE_URL!, { ssl: "require" });
 
@@ -43,7 +44,7 @@ export async function fetchLatestInvoices() {
       ...invoice,
       amount: formatCurrency(invoice.amount),
     }));
-    console.log(invoice); // Invoice is an empty array []
+    console.log(invoices); // Invoice is an empty array []
 
     return latestInvoices;
   } catch (error) {
